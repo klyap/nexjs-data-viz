@@ -9,9 +9,9 @@ const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1Ijoia2x5YXAiLCJhIjoiY2twYzJiMWhzMTMwODJybGFs
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
-  longitude: -122.41669,
-  latitude: 37.7853,
-  zoom: 9,
+  longitude: -41.016100,
+  latitude: 39.591436,
+  zoom: 1,
   pitch: 0,
   bearing: 0
 };
@@ -53,6 +53,8 @@ const arcLayer = new ArcLayer({
     getTargetPosition: d => d.from.coordinates,
     getSourceColor: [0, 255, 0],
     getTargetColor: [255, 0, 0],
+    getHeight: 0.1,
+    getTilt: 40,
 });
 
 export default function App({data}) {
