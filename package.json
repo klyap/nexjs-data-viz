@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "deck.gl": "^8.4.16",
+    "gray-matter": "^4.0.3",
     "next": "^10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
