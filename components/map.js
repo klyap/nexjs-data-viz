@@ -48,23 +48,23 @@ const INITIAL_VIEW_STATE = {
 //   ];
 
 export default function Map({data}) {
-  const [blogs, setBlogs] = useState([]);
+  const [journeys, setJourneys] = useState([]);
 
   useEffect(() => {
     fire.firestore()
       .collection('blog')
       .onSnapshot(snap => {
-        const blogs = snap.docs.map(doc => ({
+        const journeys = snap.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
-        setBlogs(blogs);
+        setJourneys(journeys);
       });
   }, []);
 
   const arcLayer = new ArcLayer({
       id: 'arc-layer',
-      data: blogs,
+      data: journeys,
       pickable: true,
       getWidth: 6,
       getSourcePosition: d => d.now.coordinates,
@@ -75,10 +75,6 @@ export default function Map({data}) {
       getTilt: 40,
   });
 
-  const layers = [
-    arcLayer
-  ];
-
   return (
     <div className={styles.mapContainer}>
       <DeckGL
@@ -86,7 +82,7 @@ export default function Map({data}) {
         height={'600px'}
         initialViewState={INITIAL_VIEW_STATE}
         controller={true}
-        layers={layers}
+        layers={[arcLayer]}
         getTooltip={({object}) => object && {
           text: `${object.now.name} to ${object.from.name}`,
           style: {

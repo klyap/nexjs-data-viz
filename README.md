@@ -8,5 +8,4 @@ https://medium.com/swlh/lets-create-blog-app-with-next-js-react-hooks-and-fireba
 
 TODO:
 - set up env vars for API keys
-- clean up references to blogs
 - add side nav
