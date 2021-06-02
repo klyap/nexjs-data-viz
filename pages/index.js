@@ -24,7 +24,6 @@ export default function Home({ allPostsData }) {
       </Head>
       <Map />
       <SubmissionFrom />
-
     </Layout>
   )
 }

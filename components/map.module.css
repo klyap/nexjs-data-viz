@@ -1,0 +1,8 @@
+.mapContainer {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tooltip {
+  background-color: antiquewhite;
+}

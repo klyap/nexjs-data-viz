@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import fire from '../lib/firebase-config';
+import styles from './submission-form.module.css'
 
 const SubmissionFrom = () => {
   const [nowName, setNowName] = useState('');
@@ -30,42 +31,40 @@ const SubmissionFrom = () => {
       );
 
     setNowName('');
+    setFromName('');
 
-    setNotification('Blogpost created');
+    setNotification('Story added!');
     setTimeout(() => {
       setNotification('')
     }, 2000)
   }
   return (
-    <div>
-      <h2>Add your journey</h2>
-
+    <div className={styles.formContainer}>
+      <h2>Let us know your journey</h2>
       {notification}
-
       <form onSubmit={handleSubmit}>
         <div>
-          <br />
           Where are you now?
           <br />
           City, state, country
-          <input type="text" value={nowName} onChange={({target}) => setNowName(target.value)} />
+          <input className={styles.input} type="text" value={nowName} onChange={({target}) => setNowName(target.value)} />
           <br />
           Lat
-          <input type="text" value={nowLat} onChange={({target}) => setNowLat(target.value)} />
+          <input className={styles.input} type="text" value={nowLat} onChange={({target}) => setNowLat(target.value)} />
           Long
-          <input type="text" value={nowLong} onChange={({target}) => setNowLong(target.value)} />
+          <input className={styles.input} type="text" value={nowLong} onChange={({target}) => setNowLong(target.value)} />
         </div>
         <div>
           <br />
           Where are you from?
           <br />
           City, state, country
-          <input type="text" value={fromName} onChange={({target}) => setFromName(target.value)} />
+          <input className={styles.input} type="text" value={fromName} onChange={({target}) => setFromName(target.value)} />
           <br />
           Lat
-          <input type="text" value={fromLat} onChange={({target}) => setFromLat(target.value)} />
+          <input className={styles.input} type="text" value={fromLat} onChange={({target}) => setFromLat(target.value)} />
           Long
-          <input type="text" value={fromLong} onChange={({target}) => setFromLong(target.value)} />
+          <input className={styles.input} type="text" value={fromLong} onChange={({target}) => setFromLong(target.value)} />
         </div>
         <button type="submit">Save</button>
       </form>
