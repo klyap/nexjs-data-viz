@@ -4,8 +4,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Your Name'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'AAPI Origins'
 
 export default function Layout({ children, home }) {
   return (
@@ -25,7 +24,11 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <main>
+      <div className={styles.header}>
+        <Image src="/images/globe.svg" width="30px" height="30px"/>
+        <div className={styles.headerText}>We are unique as an individual, but we are all connected as an Asian community.</div>
+      </div>
+      <main className={styles.main}>
         <div>{children}</div>
       </main>
       {!home && (

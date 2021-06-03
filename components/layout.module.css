@@ -1,14 +1,22 @@
-.container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+.main {
+  padding: 1rem 4rem;
+  color: #1a1a34;
+  font-size: 12px;
 }
 
 .header {
+  background-color: #1a1a34;
+  height: 50px;
+  color: white;
+  font-size: 18px;
+  padding: 10px 70px;
+  width: 100%;
+  font-family: serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 200px;
+}
+
+.headerText {
+  margin-left: 10px;
 }
 
 .backToHome {

@@ -1,8 +1,19 @@
 .mapContainer {
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  height: 340px;
+  width: 600px;
 }
 
 .tooltip {
   background-color: antiquewhite;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.submissionPreview {
+  margin-left: 20px;
 }
