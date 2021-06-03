@@ -20,7 +20,7 @@
 }
 
 .longInput {
-  background: #5A5A89;
+  /* background: #5A5A89; */
   border-radius: 4px;
   width: 100%;
   height: 90%;
@@ -69,5 +69,9 @@
 .submitButtonContent {
   /* display: flex; */
   /* align-items: center; */
+  text-align: center;
+}
+
+.avatar {
   text-align: center;
 }

@@ -77,7 +77,7 @@ export default function Map({data}) {
           </DeckGL>
         </div>
         <div className={styles.submissionPreview}>
-          <SubmissionPreview showHelpText={!selectedJourney.from} fromName={selectedJourney.from?.name} nowName={selectedJourney.now?.name} story={selectedJourney.story} />
+          <SubmissionPreview showHelpText={!selectedJourney || !selectedJourney.from} fromName={selectedJourney?.from?.name} nowName={selectedJourney?.now?.name} story={selectedJourney?.story} />
         </div>
       </div>
     </div>

@@ -3,15 +3,16 @@ import fire, {collectionName} from '../lib/firebase-config';
 import styles from './submission-form.module.css'
 import SubmissionPreview from './submission-preview';
 import Image from 'next/image'
+import AutoComplete from "react-google-autocomplete";
+
+const GOOGLE_MAPS_API_KEY='AIzaSyAb7iUMq2uj1FspzVhKEHRFNZG97pic5Vg';
 
 const SubmissionForm = () => {
   const [nowName, setNowName] = useState('');
-  const [nowLat, setNowLat] = useState(null);
-  const [nowLong, setNowLong] = useState(null);
+  const [nowCoord, setNowCoord] = useState(null);
 
   const [fromName, setFromName] = useState('');
-  const [fromLat, setFromLat] = useState(null);
-  const [fromLong, setFromLong] = useState(null);
+  const [fromCoord, setFromCoord] = useState(null);
 
   const [story, setStory] = useState('');
 
@@ -25,11 +26,11 @@ const SubmissionForm = () => {
         {
           now: {
             name: nowName,
-            coordinates: [parseFloat(nowLat), parseFloat(nowLong)]
+            coordinates: nowCoord
           },
           from: {
             name: fromName,
-            coordinates: [parseFloat(fromLat), parseFloat(fromLong) ]
+            coordinates: fromCoord
           },
           story: story
         }
@@ -37,11 +38,17 @@ const SubmissionForm = () => {
 
     setNowName('');
     setFromName('');
+    setStory('');
 
     setNotification('Story added!');
     setTimeout(() => {
       setNotification('')
     }, 2000)
+  }
+
+  const handleSelectPlace = (setCoord, setName, place) => {
+    setCoord([place.geometry.location.lng(), place.geometry.location.lat()]);
+    setName(place.formatted_address);
   }
   return (
     <div>
@@ -53,26 +60,23 @@ const SubmissionForm = () => {
           <div className={styles.formContainer}>
             <div className={styles.flexContainer}>
               <div className={styles.flexItemLeft}>
-
+                <div className={styles.avatar}><Image src={'/images/avatar.png'} height='80px'width='80px'/></div>
                 Where are you now?
                 <br />
-                <input placeholder="city, state, country" className={styles.input} type="text" value={nowName} onChange={({target}) => setNowName(target.value)} />
-                <br />
-                Lat
-                <input className={styles.input} type="text" value={nowLat} onChange={({target}) => setNowLat(target.value)} />
-                Long
-                <input className={styles.input} type="text" value={nowLong} onChange={({target}) => setNowLong(target.value)} />
+                <AutoComplete
+                  apiKey={GOOGLE_MAPS_API_KEY}
+                  onPlaceSelected={place => handleSelectPlace(setNowCoord, setNowName, place)}
+                />
+                <br /><br />
 
-                <br />
-                <br />
                 Where are you from?
                 <br />
-                <input placeholder="city, state, country" className={styles.input} type="text" value={fromName} onChange={({target}) => setFromName(target.value)} />
+                <AutoComplete
+                  apiKey={GOOGLE_MAPS_API_KEY}
+                  onPlaceSelected={place => handleSelectPlace(setFromCoord, setFromName, place)}
+                />
                 <br />
-                Lat
-                <input className={styles.input} type="text" value={fromLat} onChange={({target}) => setFromLat(target.value)} />
-                Long
-                <input className={styles.input} type="text" value={fromLong} onChange={({target}) => setFromLong(target.value)} />
+
               </div>
 
               <div className={styles.flexItemRight}>
