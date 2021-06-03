@@ -1,7 +1,7 @@
 /// app.js
 import React, { useState, useEffect } from 'react';
 import DeckGL from '@deck.gl/react';
-import {ArcLayer} from '@deck.gl/layers';
+import {ArcLayer, IconLayer} from '@deck.gl/layers';
 import {StaticMap} from 'react-map-gl';
 import fire, {collectionName} from '../lib/firebase-config';
 import styles from './map.module.css';
@@ -48,6 +48,24 @@ export default function Map({data}) {
       getTilt: 40,
   });
 
+  const ICON_MAPPING = {
+    marker: {x: 0, y: 10, width: 128, height: 128, mask: true}
+  };
+
+  const iconLayer = new IconLayer({
+      id: 'icon-layer',
+      data: journeys,
+      pickable: true,
+      id: 'icon-layer',
+      iconAtlas: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png',
+      iconMapping: ICON_MAPPING,
+      getIcon: d => 'marker',
+      sizeScale: 5,
+      getPosition: d => d.now.coordinates,
+      getSize: d => 5,
+      getColor: d => [230, 230, 254]
+  });
+
   return (
     <div>
       <h3> Where am I from? </h3>
@@ -59,7 +77,7 @@ export default function Map({data}) {
             height={'340px'}
             initialViewState={INITIAL_VIEW_STATE}
             controller={true}
-            layers={[arcLayer]}
+            layers={[arcLayer, iconLayer]}
             onClick={(info, event) => {setSelectedJourney(info.object)}}
             getTooltip={({object}) => object && {
               text: `${object.now.name} to ${object.from.name}`,
