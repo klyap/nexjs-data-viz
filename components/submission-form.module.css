@@ -20,7 +20,7 @@
 }
 
 .longInput {
-  /* background: #5A5A89; */
+  background: #5A5A89;
   border-radius: 4px;
   width: 100%;
   height: 90%;
@@ -39,10 +39,11 @@
 
 .flexItemLeft {
   padding: 10px;
+  width: 50%;
 }
 
 .flexItemRight {
-  width: 70%;
+  width: 50%;
   padding: 10px;
 }
 

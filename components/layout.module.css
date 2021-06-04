@@ -15,10 +15,39 @@
   display: flex;
 }
 
+.header2 {
+  background-color: black;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  padding: 10px 10px;
+  width: 300px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  margin-left: 30%;
+}
+
+.center {
+  margin-left: 160px;
+}
+
 .headerText {
-  margin-left: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 .backToHome {
   margin: 3rem 0 0;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.globeIcon {
+  margin: 20px 20px;
 }

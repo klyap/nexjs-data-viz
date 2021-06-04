@@ -68,7 +68,7 @@ export default function Map({data}) {
 
   return (
     <div>
-      <h3> Where am I from? </h3>
+      {/* <h3 className={styles.title}> Share your story </h3> */}
       <div className={styles.flexContainer}>
 
         <div className={styles.mapContainer}>
@@ -80,11 +80,12 @@ export default function Map({data}) {
             layers={[arcLayer, iconLayer]}
             onClick={(info, event) => {setSelectedJourney(info.object)}}
             getTooltip={({object}) => object && {
-              text: `${object.now.name} to ${object.from.name}`,
+              text: `${object.from.name} to ${object.now.name}`,
               style: {
                 'background-color': 'rgba(255, 255, 255, 0.24)',
                 'border-radius': '4px',
-                'color': 'white'
+                'color': 'white',
+                'max-width': '100px',
               }
             }}
           >

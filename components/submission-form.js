@@ -53,7 +53,6 @@ const SubmissionForm = () => {
   return (
     <div>
     <br/>
-    <h3>Let us know your story!</h3>
     <form onSubmit={handleSubmit}>
     <div className={styles.flexContainer}>
       <div>
@@ -64,6 +63,7 @@ const SubmissionForm = () => {
                 Where are you now?
                 <br />
                 <AutoComplete
+                  className={styles.input}
                   apiKey={GOOGLE_MAPS_API_KEY}
                   onPlaceSelected={place => handleSelectPlace(setNowCoord, setNowName, place)}
                 />
@@ -72,6 +72,7 @@ const SubmissionForm = () => {
                 Where are you from?
                 <br />
                 <AutoComplete
+                  className={styles.input}
                   apiKey={GOOGLE_MAPS_API_KEY}
                   onPlaceSelected={place => handleSelectPlace(setFromCoord, setFromName, place)}
                 />

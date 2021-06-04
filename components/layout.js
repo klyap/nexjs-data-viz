@@ -24,9 +24,20 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div className={styles.header}>
+      {/* <div className={styles.header}>
         <Image src="/images/globe.svg" width="30px" height="30px"/>
         <div className={styles.headerText}>We are unique as an individual, but we are all connected as an Asian community.</div>
+      </div> */}
+      {/* <div className={styles.flexContainer}>
+        <div className={styles.globeIcon}>
+          <Image className={styles.globeIcon} src="/images/globe.svg" width="30px" height="30px"/>
+        </div>
+        <div className={styles.header2}>
+          <div className={styles.headerText}>Where am I from</div>
+        </div>
+      </div> */}
+      <div className={styles.center}>
+        <Image src='/images/mock-header.png' height="70px" width="590px"/>
       </div>
       <main className={styles.main}>
         <div>{children}</div>

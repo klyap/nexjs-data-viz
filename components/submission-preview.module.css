@@ -6,7 +6,7 @@
   border-radius: 10px;
   color: #1a1a34;
 
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   text-align: left;
 }
@@ -16,7 +16,7 @@
   border-radius: 10px;
   color: white;
 
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   height: 160px;
 }
@@ -25,15 +25,13 @@
   background: #ffffff52;
   border-radius: 10px;
   color: #1a1a34;
-
   padding: 4px;
-  height: 100px;
+  height: 120px;
   overflow-wrap: normal;
   text-align: left;
-  margin: 10px;
-
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  margin: 2px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow: scroll;
 }
 
